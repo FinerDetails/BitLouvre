@@ -1,0 +1,14 @@
+ul, li {
+    list-style:none;
+}
+p{
+    text-align: left;
+}
+img {
+    width: 50%;
+    height: auto;
+}
+
+#content-block div{
+    display: inline-block;
+}

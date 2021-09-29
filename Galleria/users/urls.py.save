@@ -1,0 +1,4 @@
+from django.urls import path
+from django.contrib.auth import views as auth_views
+
+#MITÄ VITTUA MÄ TEENpath('users/login/', auth_view, name='login')

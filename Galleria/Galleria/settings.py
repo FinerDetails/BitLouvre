@@ -25,14 +25,15 @@ SECRET_KEY = 'django-insecure-p=inguzfu3wd94ggtzl^$&0fi!wj4agxgw922*^-ps5*p4b3c4
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
+#Alex: tämä on julkinen ip testi
+ALLOWED_HOSTS = ["40.127.194.220"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'gallery.apps.GalleryConfig',
+    'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'Galleria.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'Galleria/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -116,9 +117,16 @@ USE_L10N = True
 USE_TZ = True
 
 
+#Valmiina vaihtamaan nämä suoralla viitauksilla eikä djangon tavalla
+LOGIN_URL = 'user:login'
+#Mahdolliesti poistetaan
+LOGIN_REDIRECT_URL = 'gallery:index'
+
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'Galleria/static')]
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
