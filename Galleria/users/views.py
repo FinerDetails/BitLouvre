@@ -10,7 +10,7 @@ def register_request(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect("gallery:index")
+            return redirect("gallery:display_images")
     else:
         form = NewUserForm()
     return render(request, "users/register.html", {"register_form":form})
@@ -24,7 +24,7 @@ def login_request(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect("gallery:index")
+                return redirect("gallery:display_images")
     else:
         form = AuthenticationForm()
     return render(request, "users/login.html", {"login_form":form})

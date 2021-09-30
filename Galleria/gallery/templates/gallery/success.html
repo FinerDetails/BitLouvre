@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-<p>Testi y ka koo</p>
+<div class="template">
+    <p>Testi y ka koo</p>
 
-<p><a href="{% url 'gallery:image_upload' %}">Upload new picture</a></p>
-<p><a href="{% url 'gallery:display_images' %}">Back to index</a></p>
-
+    <p><a href="{% url 'gallery:image_upload' %}">Upload new picture</a></p>
+    <p><a href="{% url 'gallery:display_images' %}">Back to index</a></p>
+</div>
 {% endblock %}
