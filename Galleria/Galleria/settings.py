@@ -117,9 +117,8 @@ USE_L10N = True
 USE_TZ = True
 
 
-#Valmiina vaihtamaan nämä suoralla viitauksilla eikä djangon tavalla
-LOGIN_URL = 'user:login'
-#Mahdolliesti poistetaan
+#nää tarvitaan views.py t hannu
+LOGIN_URL = 'users:login'
 LOGIN_REDIRECT_URL = 'gallery:index'
 
 

@@ -1,16 +1,29 @@
 {% extends "base.html" %}
 
 {% block content %}
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+</head>
+
+
 <div class="template">
     <h1>Testi</h1>
     <p><a href="{% url 'gallery:image_upload' %}">Upload Images</a></p>
-
+    <div class="row">
     {% for post in posts %}
-        <div class="img_container">
+        <div class="col-sm-6 col-md-4 col-lg-2" style="overflow:hidden; padding-top: calc(var(--bs-gutter-x)/ 2); padding-bottom: calc(var(--bs-gutter-x)/ 2);">
             <p>{{ post.description }}</p>
-            <img src="{{ post.image.url}}"/>
+            <a class="lightbox" href="{{ post.image.url}}">
+                <img src="{{ post.image.url}}"/>
+            </a>
         </div>
     {% endfor %}
+    </div>
 </div>
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+<script>
+    baguetteBox.run('.template');
+</script>
 {% endblock %}

@@ -5,3 +5,4 @@ class UploadForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['description', 'image']
+
