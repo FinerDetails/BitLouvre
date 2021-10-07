@@ -20,7 +20,6 @@
     <title>BitLouvre</title>
 </head>
 <body>
-  <div class="bodywrapper">
     <header class="jumbotron">
       <div class="header-filter p-3">
       <div class="border-left border-white">
@@ -30,34 +29,33 @@
     </div>
     </header>
     <nav class="navbar navbar-expand-sm justify-content-center sticky-top" style="padding: 0;">
-    <div class="nav-blur-filter"></div>
+      <div class="nav-blur-filter"></div>
      
-      <ul id="navbar-list" class="navbar-nav">
-        <li>
-          {% if user.is_authenticated %}
-          <a class="nav-link disabled navbar-left" href="#">Hello {{user.username}}!</a>
-          {% endif %}
+        <ul id="navbar-list" class="navbar-nav">
+          <li>
+            {% if user.is_authenticated %}
+            <a class="nav-link disabled navbar-left" href="#">Hello {{user.username}}!</a>
+            {% endif %}
+            
+            <a class="icon" href="javascript:void(0);" onclick="dropdown()">
+            <i class="fas fa-bars"></i>
+          </a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url "gallery:display_images" %}">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url "gallery:image_upload" %}">Upload</a></li>
           
-          <a class="icon" href="javascript:void(0);" onclick="dropdown()">
-          <i class="fas fa-bars"></i>
-        </a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url "gallery:display_images" %}">Gallery</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url "gallery:image_upload" %}">Upload</a></li>
-        
-        {% if user.is_authenticated %}
-        <li class="nav-item">
-          <a class="nav-link" href="{% url "users:logout" %}">Log Out</a>
-        </li>
-        
-        {% else %}
-        <li class="nav-item">
-          <a class="nav-link" href="{% url "users:login" %}">Login</a>
-        </li>
-        {% endif %}
-      </ul>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url "users:logout" %}">Log Out</a>
+          </li>
+          
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url "users:login" %}">Login</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
     </nav>
-    <div class="triangle" id="triangle1"></div>
-    <div class="triangle" id="triangle2"></div>
     <main class="container justify-content-center">
     {% block content %}
     {% endblock content %}
@@ -68,6 +66,8 @@
       </ul>
       <p class="copyright">BitLouvre © 2021</p>
     </footer>
+  </div>
+</body>
   <script>
     function dropdown() {
       var x = document.getElementById("navbar-list");
@@ -77,7 +77,6 @@
         x.className = "navbar-nav";
       }
     }
-    </script>
-</body>
-</div>
+  </script>
+
 </html>

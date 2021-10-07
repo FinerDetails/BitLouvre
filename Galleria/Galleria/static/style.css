@@ -29,17 +29,6 @@ nav{
     background-color: rgba(250, 252, 255, 0.9);
 }
 
-/*@media screen and (max-width:558px){
-    body{overflow-x: hidden;}
-    .navbar-nav {flex-direction:row;}
-    .navbar li:not(#open):not(.icon) {opacity: 0; width:0; transition:none;} /*piilottaa menun*/
-    /*.navbar .icon {position:relative; font-size:125%; padding-top: 50%; padding-bottom: 50%;}
-    .navbar .dropdown {height:auto; max-height:400px; transition: 200ms;}
-    .navbar .dropdown li:not(#open):not(.icon) {display:block !important; opacity:1; width:100%; transition:none;}
-    ul .icon{
-        display:inline-block !important;
-    }
-}*/
 ul .icon, i{
     display:none;
     color:#860D23;
@@ -67,7 +56,6 @@ ul .icon, i{
 
 .jumbotron{
     background-color:#c5c5c5;
-    /*transform: rotate(90deg);*/
     color: #FFE4DA;
     position:relative;
     overflow:hidden;
@@ -127,28 +115,6 @@ main{
     padding-bottom:100px;
 }
 
-.triangle{
-
-    position:absolute;
-    width:100vw;
-    height:50vw;
-    max-height:2000px;
-    max-width:1000px;
-    min-height:;
-    min-width:;
-    background-color:#860d23e5;
-    z-index:-1;
-}
-#triangle1{
-    transform:rotate(-22deg);
-    top:clamp(-100px,-10vw,-200px);
-    right:-30vw;
-}
-#triangle2{
-    transform:rotate(22deg);
-    left:-30vw;
-    top:-10vw;
-}
 .deletediv {
     text-align: center;
 }
