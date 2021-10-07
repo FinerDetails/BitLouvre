@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div id="row">
+    <div class="deletediv">
+        <form method="post">
+            {% csrf_token %}
+            {% if user == post.submitter %}
+            <p>Are you sure you want to delete this image?</p>
+            <img src="{{ post.image.url}}" class="border border-secondary"/>
+            <div id="deletebuttons">
+                <a style="text-decoration:none" href="{% url "gallery:display_images" %}">
+                    <button type="button" class="btn btn-outline-danger">Cancel</button>
+                </a>
+                <button class="btn btn-outline-success">Confirm</button>
+            </div>
+            {% else %}
+            <h2>You are not the owner of this picture</h2>
+            <img src="{{ post.image.url}}" class="border border-secondary"/>
+            <a href="{% url "gallery:display_images" %}">
+                <br>
+                <br>
+                <button type="button" class="btn btn-dark btn-lg">Go back to the main page</button>
+            </a>
+            {% endif %}
+        </form> 
+    </div>
+</div>
+{% endblock %}

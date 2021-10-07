@@ -9,6 +9,6 @@ urlpatterns = [
     path('', display_images, name = 'display_images'),
     #upload sivu
     path('image_upload', image_upload, name = 'image_upload'),
-    #jos upload onnistu sivu
-    path('success', success, name = 'success'),
+    #Delete id perusteella
+    path('<pk>/delete/', PostDeleteView.as_view()),
 ]

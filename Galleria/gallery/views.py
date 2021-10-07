@@ -5,7 +5,7 @@ from .forms import UploadForm
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 # Create your views here.
-#Täällä tehdään kaikki tärkeät. Täältä me viitataan html ja mitä tapahtuu
+
 #app/urls viittaa nimet tänne ja miten ne toimii
 
 def display_images(request):
@@ -22,10 +22,15 @@ def image_upload(request):
             post.submitter = request.user
             post.pub_date = timezone.now()
             post.save()
-            return redirect('gallery:success')
+            return redirect('gallery:display_images')
     else:
         form = UploadForm()
     return render(request, 'gallery/upload.html', {'form' : form})
 
-def success(request):
-    return render(request, 'gallery/success.html', {})
+
+#kuvan poisto form
+from django.views.generic.edit import DeleteView
+from django.urls import reverse_lazy
+class PostDeleteView(DeleteView):
+    model = Post
+    success_url = '/gallery/'

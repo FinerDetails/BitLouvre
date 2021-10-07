@@ -2,9 +2,13 @@
 
 {% block content %}
 <div class="template">
-    <p>Testi y ka koo</p>
-
-    <p><a href="{% url 'gallery:image_upload' %}">Upload new picture</a></p>
-    <p><a href="{% url 'gallery:display_images' %}">Back to index</a></p>
+    <div class="form-container">
+        <a href="{% url 'gallery:image_upload' %}">
+            <button type="button" class="btn btn-dark">Upload new picture</button>
+        </a>
+        <a href="{% url 'gallery:display_images' %}">
+            <button type="button" class="btn btn-dark btn-lg">Go back to gallery</button>
+        </a>
+    </div>
 </div>
 {% endblock %}

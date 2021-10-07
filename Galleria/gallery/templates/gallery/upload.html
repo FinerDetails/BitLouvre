@@ -2,14 +2,16 @@
 
 {% block content %}
 <div class="template">
-    <h1>Upload</h1>
-
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Upload</button>
-    </form>
-    <p><a href="{% url 'gallery:display_images' %}">Go back to main page</a></p>
-
+    <div class="form-container">
+        <h2>Upload</h2>
+        <br>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-dark btn-lg">Upload</button>
+        </form>
+        <br>
+        <p><a href="{% url 'gallery:display_images' %}">Go back to main page</a></p>
+    </div>
 </div>
 {% endblock %}
